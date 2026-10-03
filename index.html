@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Start Together: find a business partner in your own city</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfcfa;--card:#fff;--ink:#12313a;--mute:#51666c;--teal:#1f7a6d;--teal-d:#165a50;--amber:#e0a03a;--line:#dbe5e1;--tint:#eef5f2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1e22;--card:#152a2f;--ink:#e8f0ee;--mute:#9db3b0;--teal:#45b5a3;--teal-d:#6fd0bf;--line:#244047;--tint:#12282d}}
+:root[data-theme="dark"]{--bg:#0e1e22;--card:#152a2f;--ink:#e8f0ee;--mute:#9db3b0;--teal:#45b5a3;--teal-d:#6fd0bf;--line:#244047;--tint:#12282d}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw,3.8rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:800}
+h3{font-size:1.15rem;font-weight:600}
+p{margin:0 0 1em}
+a{color:var(--teal-d)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:800 1.4rem "Bricolage Grotesque",sans-serif;color:var(--teal-d);text-decoration:none}
+.btn{display:inline-block;background:var(--teal);color:#fff;border:0;border-radius:10px;padding:13px 22px;font:600 1rem "Source Sans 3",sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--teal-d)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.hero{display:grid;gap:36px;grid-template-columns:1.1fr .9fr;align-items:center;padding:36px 0 56px}
+.hero p.lead{font-size:1.2rem;color:var(--mute);max-width:34em}
+.matcher{background:var(--card);border:2px solid var(--teal);border-radius:16px;padding:22px}
+.matcher label{display:block;font-weight:600;font-size:.95rem;margin:12px 0 4px}
+select,input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.count{margin-top:18px;padding:16px;border-radius:12px;background:var(--tint);text-align:center}
+.count b{display:block;font:800 3rem "Bricolage Grotesque",sans-serif;color:var(--teal-d);line-height:1}
+.count span{color:var(--mute);font-size:.95rem}
+.note{font-size:.85rem;color:var(--mute);margin-top:10px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.steps li::before{content:counter(s);display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--amber);color:#2a1c00;font-weight:800;margin-bottom:10px}
+.steps p{margin:0;color:var(--mute);font-size:.95rem}
+.price{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.big{font:800 4rem "Bricolage Grotesque",sans-serif;color:var(--teal-d);line-height:1}
+.bar{height:16px;border-radius:99px;background:var(--tint);border:1px solid var(--line);overflow:hidden;margin:10px 0 6px}
+.bar i{display:block;height:100%;width:62%;background:var(--teal)}
+form.join{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;max-width:520px}
+#done{display:none;background:var(--tint);border-radius:10px;padding:14px;margin-top:14px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{font-weight:600;cursor:pointer}
+details p{margin:8px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mute);font-size:.9rem}
+@media (max-width:800px){.hero,.price{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="logo" href="#">Start Together</a><a class="btn" href="#join">Join the waitlist</a></header>
+
+<div class="hero">
+<div>
+<h1>Start a business with the right partner, in your own city</h1>
+<p class="lead">Have ₹50,000 and a plan for a tea stall, grocery or tiffin service? Find a verified person nearby with the other ₹50,000, or the time and interest to build it with you.</p>
+<a class="btn" href="#join">Join for ₹20</a>
+</div>
+<div class="matcher" aria-live="polite">
+<h3>See who matches you</h3>
+<label for="city">Your city</label>
+<select id="city"><option>Bengaluru</option><option>Mysuru</option><option>Hubballi</option><option>Hyderabad</option><option>Pune</option><option>Other</option></select>
+<label for="cap">Capital you can put in</label>
+<select id="cap"><option value="0">Under ₹50,000</option><option value="1" selected>₹50,000 to ₹1 lakh</option><option value="2">₹1 to 5 lakh</option><option value="3">₹5 lakh and above</option></select>
+<label for="role">What do you want to do?</label>
+<select id="role"><option value="daily">Work in the business daily</option><option value="invest">Invest only</option><option value="either">Either</option></select>
+<div class="count"><b id="n">0</b><span id="txt"></span></div>
+<p class="note">Sample numbers for this demo. Real counts appear once members join your city.</p>
+</div>
+</div>
+
+<section>
+<h2>How it works</h2>
+<ol class="steps">
+<li><h3>Sign up</h3><p>Pay ₹20, fill in your city, capital, business type, role and timeline.</p></li>
+<li><h3>Get verified</h3><p>Verify your identity once. Only verified members can see each other.</p></li>
+<li><h3>Request contact</h3><p>Send a request to a match. Numbers are shared only if they accept.</p></li>
+<li><h3>Decide yourselves</h3><p>Meet, talk and agree your own terms. We stay out of your deal.</p></li>
+</ol>
+</section>
+
+<section>
+<div class="price">
+<div>
+<h2>One small yearly fee</h2>
+<div class="big">₹199</div>
+<p>₹20 to join and see your match count, then ₹179 for verification and one year of contact access. It covers our running costs, nothing more.</p>
+</div>
+<div>
+<h3>Your city: Bengaluru</h3>
+<div class="bar" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+<p style="margin:0"><b>62 of 100</b> members joined. The ₹179 is collected only when your city reaches 100. If it never does, your ₹20 is refunded.</p>
+<p class="note">Sample progress for the demo.</p>
+</div>
+</div>
+</section>
+
+<section id="join">
+<h2>Join the waitlist</h2>
+<form class="join" id="f">
+<label for="nm">Name</label><input id="nm" required autocomplete="name">
+<label for="ph" style="margin-top:12px;display:block">Phone number</label><input id="ph" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 digits" autocomplete="tel">
+<label for="ct" style="margin-top:12px;display:block">City</label><input id="ct" required>
+<label for="cb" style="margin-top:12px;display:block">Capital band</label>
+<select id="cb"><option>Under ₹50,000</option><option>₹50,000 to ₹1 lakh</option><option>₹1 to 5 lakh</option><option>₹5 lakh and above</option></select>
+<label style="margin:14px 0;display:flex;gap:10px;align-items:flex-start"><input type="checkbox" required style="width:auto;margin-top:6px">I understand Start Together only introduces members and takes no part in any deal or money.</label>
+<button class="btn" type="submit">Join the waitlist</button>
+<div id="done" role="status">You're on the waitlist. This demo does not send data to a server yet.</div>
+</form>
+</section>
+
+<section>
+<h2>Questions</h2>
+<details><summary>Do you handle our money or deal?</summary><p>No. We introduce verified people. You decide everything together, and no money passes through us.</p></details>
+<details><summary>Why only my city?</summary><p>You can meet, visit each other's work and ask around. That builds trust faster than any online check.</p></details>
+<details><summary>Can anyone see my phone number?</summary><p>No. Numbers are shared only after the other person accepts your request. Each member can send 5 new requests a month.</p></details>
+<details><summary>Do you store my Aadhaar or PAN?</summary><p>No. We only record that you are verified, not your ID details.</p></details>
+</section>
+
+<footer>Start Together is an introduction service. Please verify the other person and any business details yourself.</footer>
+</div>
+
+<script>
+var base={Bengaluru:140,Hyderabad:110,Pune:95,Mysuru:45,Hubballi:38,Other:20};
+var $=function(i){return document.getElementById(i)};
+function upd(){
+  var c=base[$("city").value],cap=+$("cap").value,r=$("role").value;
+  var f=[1,.9,.55,.25][cap]*(r==="either"?1.4:.8);
+  var n=Math.max(1,Math.round(c*f/ (r==="either"?8:10)));
+  $("n").textContent=n;
+  var who=r==="daily"?"people with money who want a partner who runs the business":r==="invest"?"people who want to run a business and need an investor":"people who could partner with you";
+  $("txt").textContent="verified "+who+" in "+$("city").value+" (sample)";
+}
+["city","cap","role"].forEach(function(i){$(i).addEventListener("change",upd)});upd();
+// 1) Create a free form at https://formspree.io, copy its URL and paste it below.
+//    Example: "https://formspree.io/f/abcdwxyz". Leave empty to run in demo mode.
+var FORM_URL="";
+$("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var d=$("done"),data={name:$("nm").value,phone:$("ph").value,city:$("ct").value,capital:$("cb").value};
+  if(!FORM_URL){d.textContent="Demo mode: add your form URL in index.html to receive sign-ups.";d.style.display="block";return;}
+  fetch(FORM_URL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(data)})
+   .then(function(r){d.textContent=r.ok?"You're on the waitlist. We will message you when your city opens.":"Something went wrong. Please try again.";d.style.display="block";if(r.ok)$("f").reset();})
+   .catch(function(){d.textContent="No internet connection. Please try again.";d.style.display="block";});
+});
+</script>
+</body>
+</html>
